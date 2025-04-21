@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Astra Rover Team | URC 2025 - SAR</title>
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-dark text-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-robot me-2"></i>
+                Ad Astra Rover Team | URC 2025 - System Acceptance Review (SAR)
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-flask me-1"></i>Science-subsystem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-robot me-1"></i>Autonomous mode</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bolt me-1"></i>Power-subsystem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt me-1"></i>Map</a>
+                    </li>
+                </ul>
+                <div class="ms-auto d-flex align-items-center">
+                    <div class="connection-status me-3">
+                        <i class="fas fa-circle text-success"></i>
+                        <span>Connected</span>
+                    </div>
+                    <button class="btn btn-outline-warning btn-sm">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <!-- Left Side - Video Feeds -->
+            <div class="col-lg-8">
+                <div class="card bg-dark border-secondary mb-3">
+                    <div class="card-header border-secondary d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-video me-2"></i>Camera Feeds</span>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-outline-warning"><i class="fas fa-expand"></i></button>
+                            <button class="btn btn-sm btn-outline-warning"><i class="fas fa-cog"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <div class="video-feed">
+                                    <div class="ratio ratio-16x9 bg-black">
+                                        <div id="video1" class="video-placeholder">
+                                            <i class="fas fa-video fa-3x mb-2"></i>
+                                            <div>Front Camera</div>
+                                        </div>
+                                    </div>
+                                    <div class="video-controls">
+                                        <button class="btn btn-sm btn-outline-warning"><i class="fas fa-volume-up"></i></button>
+                                        <button class="btn btn-sm btn-outline-warning"><i class="fas fa-camera"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="video-feed">
+                                    <div class="ratio ratio-16x9 bg-black">
+                                        <div id="video2" class="video-placeholder">
+                                            <i class="fas fa-video fa-3x mb-2"></i>
+                                            <div>Rear Camera</div>
+                                        </div>
+                                    </div>
+                                    <div class="video-caption">
+                                        Provides GPS, compass, gyroscope, accelerometer data for precise navigation
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="video-feed">
+                                    <div class="ratio ratio-16x9 bg-black">
+                                        <div id="video3" class="video-placeholder">
+                                            <i class="fas fa-video fa-3x mb-2"></i>
+                                            <div>Left Camera</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="video-feed">
+                                    <div class="ratio ratio-16x9 bg-black">
+                                        <div id="video4" class="video-placeholder">
+                                            <i class="fas fa-video fa-3x mb-2"></i>
+                                            <div>Right Camera</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Telemetry and Map -->
+            <div class="col-lg-4">
+                <!-- System Status -->
+                <div class="card bg-dark border-secondary mb-3">
+                    <div class="card-header border-secondary">
+                        <i class="fas fa-chart-line me-2"></i>System Status
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="status-indicator">
+                                    <i class="fas fa-microchip"></i>
+                                    <span>CPU: 45%</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="status-indicator">
+                                    <i class="fas fa-memory"></i>
+                                    <span>Memory: 60%</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="status-indicator">
+                                    <i class="fas fa-temperature-high"></i>
+                                    <span>Temp: 32°C</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="status-indicator">
+                                    <i class="fas fa-battery-three-quarters"></i>
+                                    <span>Battery: 85%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arm Controls -->
+                <div class="card bg-dark border-secondary mb-3">
+                    <div class="card-header border-secondary">
+                        <i class="fas fa-robot-arm me-2"></i>Arm Controls
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label d-flex justify-content-between">
+                                <span>X Axis</span>
+                                <span class="value">79%</span>
+                            </label>
+                            <div class="progress">
+                                <div id="xAxis" class="progress-bar" role="progressbar" style="width: 79%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label d-flex justify-content-between">
+                                <span>Y Axis</span>
+                                <span class="value">65%</span>
+                            </label>
+                            <div class="progress">
+                                <div id="yAxis" class="progress-bar" role="progressbar" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label d-flex justify-content-between">
+                                <span>Z Axis</span>
+                                <span class="value">66%</span>
+                            </label>
+                            <div class="progress">
+                                <div id="zAxis" class="progress-bar" role="progressbar" style="width: 66%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rover Orientation -->
+                <div class="card bg-dark border-secondary mb-3">
+                    <div class="card-header border-secondary">
+                        <i class="fas fa-compass me-2"></i>Rover Orientation
+                    </div>
+                    <div class="card-body">
+                        <div id="roverOrientation" class="text-center">
+                            <div class="compass mb-3">
+                                <i class="fas fa-location-arrow" style="transform: rotate(147deg)"></i>
+                            </div>
+                            <div class="coordinates">
+                                <p>X: <span id="xCoord">368.8</span></p>
+                                <p>Y: <span id="yCoord">317.6</span></p>
+                                <p>Heading: <span id="heading">147.0°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Display -->
+                <div class="card bg-dark border-secondary">
+                    <div class="card-header border-secondary">
+                        <i class="fas fa-map-marked-alt me-2"></i>Location Map
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="map" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

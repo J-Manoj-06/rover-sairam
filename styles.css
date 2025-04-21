@@ -1,0 +1,203 @@
+/* Custom theme colors */
+:root {
+    --rover-orange: #ff6b00;
+    --rover-dark: #1a1a1a;
+    --rover-darker: #0d0d0d;
+    --rover-light: #f8f9fa;
+    --rover-gray: #2d2d2d;
+}
+
+body {
+    background-color: var(--rover-dark) !important;
+    color: var(--rover-light) !important;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: var(--rover-darker) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    color: var(--rover-orange) !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    color: var(--rover-light) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--rover-orange) !important;
+}
+
+.nav-link.active {
+    color: var(--rover-orange) !important;
+    font-weight: bold;
+}
+
+/* Connection Status */
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Video feed styling */
+.video-feed {
+    position: relative;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.video-feed:hover {
+    transform: scale(1.02);
+}
+
+.video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #666;
+    height: 100%;
+    padding: 1rem;
+}
+
+.video-placeholder i {
+    color: var(--rover-orange);
+    margin-bottom: 0.5rem;
+}
+
+.video-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.video-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Cards */
+.card {
+    background-color: var(--rover-darker) !important;
+    border: 1px solid var(--rover-gray) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    color: var(--rover-orange);
+    font-weight: bold;
+    border-bottom: 1px solid var(--rover-gray) !important;
+}
+
+/* Progress bars */
+.progress {
+    height: 1.5rem;
+    background-color: var(--rover-gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--rover-orange) !important;
+    transition: width 0.3s ease;
+}
+
+/* Status indicators */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--rover-gray);
+    border-radius: 4px;
+}
+
+.status-indicator i {
+    color: var(--rover-orange);
+}
+
+/* Rover orientation */
+.compass {
+    font-size: 2rem;
+    color: var(--rover-orange);
+    transition: transform 0.3s ease;
+}
+
+.coordinates {
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.coordinates span {
+    color: var(--rover-orange);
+    font-weight: bold;
+}
+
+/* Map container */
+#map {
+    border-radius: 4px;
+    border: 1px solid var(--rover-gray);
+}
+
+/* Buttons */
+.btn-outline-warning {
+    color: var(--rover-orange);
+    border-color: var(--rover-orange);
+}
+
+.btn-outline-warning:hover {
+    background-color: var(--rover-orange);
+    border-color: var(--rover-orange);
+    color: var(--rover-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 0.5rem;
+    }
+    
+    .video-feed {
+        margin-bottom: 0.5rem;
+    }
+    
+    #map {
+        height: 250px !important;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.connection-status i {
+    animation: pulse 2s infinite;
+} 
