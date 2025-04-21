@@ -3,13 +3,15 @@
     --rover-orange: #ff6b00;
     --rover-dark: #1a1a1a;
     --rover-darker: #0d0d0d;
-    --rover-light: #f8f9fa;
+    --rover-light: #ffffff;
     --rover-gray: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
 }
 
 body {
     background-color: var(--rover-dark) !important;
-    color: var(--rover-light) !important;
+    color: var(--text-primary) !important;
 }
 
 /* Navigation Bar */
@@ -25,7 +27,7 @@ body {
 }
 
 .nav-link {
-    color: var(--rover-light) !important;
+    color: var(--text-primary) !important;
     transition: color 0.3s ease;
 }
 
@@ -44,6 +46,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
+    color: var(--text-primary);
 }
 
 /* Video feed styling */
@@ -66,7 +69,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #000;
-    color: #666;
+    color: var(--text-primary);
     height: 100%;
     padding: 1rem;
 }
@@ -82,7 +85,7 @@ body {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    color: white;
+    color: var(--text-primary);
     padding: 0.5rem;
     font-size: 0.875rem;
 }
@@ -101,6 +104,7 @@ body {
     background-color: var(--rover-darker) !important;
     border: 1px solid var(--rover-gray) !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
 }
 
 .card-header {
@@ -131,10 +135,15 @@ body {
     padding: 0.5rem;
     background-color: var(--rover-gray);
     border-radius: 4px;
+    color: var(--text-primary);
 }
 
 .status-indicator i {
     color: var(--rover-orange);
+}
+
+.status-indicator span {
+    color: var(--text-primary);
 }
 
 /* Rover orientation */
@@ -147,6 +156,7 @@ body {
 .coordinates {
     font-family: monospace;
     font-size: 1.1rem;
+    color: var(--text-primary);
 }
 
 .coordinates span {
@@ -170,6 +180,15 @@ body {
     background-color: var(--rover-orange);
     border-color: var(--rover-orange);
     color: var(--rover-dark);
+}
+
+/* Form labels */
+.form-label {
+    color: var(--text-primary);
+}
+
+.form-label .value {
+    color: var(--rover-orange);
 }
 
 /* Responsive adjustments */
