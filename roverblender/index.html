@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ad Astra Rover Team | URC 2025</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body class="bg-dark text-light">
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../index.html">
+      <i class="fas fa-robot me-2"></i>
+      Ad Astra Rover Team | URC 2025 - System Acceptance Review (SAR)
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-flask me-1"></i>Science-subsystem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-robot me-1"></i>Autonomous mode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-bolt me-1"></i>Power-subsystem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-map-marked-alt me-1"></i>Map</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../webpagerover2/index.html"><i class="fas fa-cube me-1"></i>3D Model</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><i class="fas fa-camera me-1"></i>Blender View</a>
+        </li>
+      </ul>
+      <div class="ms-auto d-flex align-items-center">
+        <div class="connection-status me-3">
+          <i class="fas fa-circle text-success"></i>
+          <span>Connected</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Rover Models Section -->
+<section class="models-container">
+  <div class="model-card">
+    <model-viewer src="rover1.glb" alt="Rover Model 1" camera-controls auto-rotate ar environment-image="neutral" poster="poster1.png"></model-viewer>
+  </div>
+
+  <div class="model-card">
+    <model-viewer src="rover2.glb" alt="Rover Model 2" camera-controls auto-rotate ar environment-image="neutral" poster="poster2.png"></model-viewer>
+  </div>
+</section>
+
+</body>
+</html>

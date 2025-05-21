@@ -53,14 +53,12 @@ body {
 .video-feed {
     position: relative;
     margin-bottom: 1rem;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
-.video-feed:hover {
-    transform: scale(1.02);
+.video-feed .ratio {
+    border: 1px solid #444;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .video-placeholder {
@@ -68,10 +66,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #000;
-    color: var(--text-primary);
     height: 100%;
-    padding: 1rem;
+    color: #666;
+    background-color: #111;
 }
 
 .video-placeholder i {
@@ -92,11 +89,62 @@ body {
 
 .video-controls {
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.5rem;
+    bottom: 10px;
+    right: 10px;
     display: flex;
-    gap: 0.5rem;
+    gap: 5px;
+    z-index: 10;
+}
+
+.video-controls .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* Camera heights */
+.video-feed .ratio-16x9 {
+    height: 300px; /* Increased height for better visibility */
+}
+
+/* Make sure the video container takes full width */
+.card-body {
+    padding: 1rem;
+}
+
+/* Ensure proper spacing between cameras */
+.row.g-2 {
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+}
+
+.row.g-2 > [class*="col-"] {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .video-feed .ratio-16x9 {
+        height: 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-feed .ratio-16x9 {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-feed .ratio-16x9 {
+        height: 180px;
+    }
+    
+    /* Stack cameras vertically on mobile */
+    .row.g-2 > [class*="col-"] {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 }
 
 /* Cards */
@@ -189,25 +237,6 @@ body {
 
 .form-label .value {
     color: var(--rover-orange);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container-fluid {
-        padding: 0.5rem;
-    }
-    
-    .video-feed {
-        margin-bottom: 0.5rem;
-    }
-    
-    #map {
-        height: 250px !important;
-    }
-
-    .navbar-brand {
-        font-size: 1rem;
-    }
 }
 
 /* Animations */

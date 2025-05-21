@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body class="bg-dark text-light">
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
@@ -17,7 +19,7 @@
             <a class="navbar-brand" href="#">
                 <i class="fas fa-robot me-2"></i>
                 Ad Astra Rover Team | URC 2025 - System Acceptance Review (SAR)
-            </a>
+            </a>                                            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,15 +40,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-map-marked-alt me-1"></i>Map</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="webpagerover2/index.html"><i class="fas fa-cube me-1"></i>3D Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roverblender/index.html"><i class="fas fa-camera me-1"></i>Blender View</a>
+                    </li>
                 </ul>
                 <div class="ms-auto d-flex align-items-center">
                     <div class="connection-status me-3">
                         <i class="fas fa-circle text-success"></i>
                         <span>Connected</span>
                     </div>
-                    <button class="btn btn-outline-warning btn-sm">
-                        <i class="fas fa-sync-alt"></i> Refresh
-                    </button>
                 </div>
             </div>
         </div>
@@ -65,59 +70,70 @@
                             <button class="btn btn-sm btn-outline-warning"><i class="fas fa-cog"></i></button>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="row g-2">
-                            <div class="col-md-6">
-                                <div class="video-feed">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <!-- Main larger feed (Top Camera) on top -->
+                            <div class="col-12">
+                                <div class="video-feed p-1">
                                     <div class="ratio ratio-16x9 bg-black">
-                                        <div id="video1" class="video-placeholder">
+                                        <div id="video5"
+                                            class="video-placeholder d-flex flex-column justify-content-center align-items-center text-light">
                                             <i class="fas fa-video fa-3x mb-2"></i>
+                                            <div>Top Camera</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 4 smaller cameras below, in 2x2 grid -->
+                            <div class="col-6">
+                                <div class="video-feed p-1">
+                                    <div class="ratio ratio-4x3 bg-black">
+                                        <div id="video1"
+                                            class="video-placeholder d-flex flex-column justify-content-center align-items-center text-light">
+                                            <i class="fas fa-video fa-2x mb-1"></i>
                                             <div>Front Camera</div>
                                         </div>
                                     </div>
-                                    <div class="video-controls">
-                                        <button class="btn btn-sm btn-outline-warning"><i class="fas fa-volume-up"></i></button>
-                                        <button class="btn btn-sm btn-outline-warning"><i class="fas fa-camera"></i></button>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="video-feed">
-                                    <div class="ratio ratio-16x9 bg-black">
-                                        <div id="video2" class="video-placeholder">
-                                            <i class="fas fa-video fa-3x mb-2"></i>
+                            <div class="col-6">
+                                <div class="video-feed p-1">
+                                    <div class="ratio ratio-4x3 bg-black">
+                                        <div id="video2"
+                                            class="video-placeholder d-flex flex-column justify-content-center align-items-center text-light">
+                                            <i class="fas fa-video fa-2x mb-1"></i>
                                             <div>Rear Camera</div>
                                         </div>
                                     </div>
-                                    <div class="video-caption">
-                                        Provides GPS, compass, gyroscope, accelerometer data for precise navigation
-                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="video-feed">
-                                    <div class="ratio ratio-16x9 bg-black">
-                                        <div id="video3" class="video-placeholder">
-                                            <i class="fas fa-video fa-3x mb-2"></i>
+                            <div class="col-6">
+                                <div class="video-feed p-1">
+                                    <div class="ratio ratio-4x3 bg-black">
+                                        <div id="video3"
+                                            class="video-placeholder d-flex flex-column justify-content-center align-items-center text-light">
+                                            <i class="fas fa-video fa-2x mb-1"></i>
                                             <div>Left Camera</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="video-feed">
-                                    <div class="ratio ratio-16x9 bg-black">
-                                        <div id="video4" class="video-placeholder">
-                                            <i class="fas fa-video fa-3x mb-2"></i>
+                            <div class="col-6">
+                                <div class="video-feed p-1">
+                                    <div class="ratio ratio-4x3 bg-black">
+                                        <div id="video4"
+                                            class="video-placeholder d-flex flex-column justify-content-center align-items-center text-light">
+                                            <i class="fas fa-video fa-2x mb-1"></i>
                                             <div>Right Camera</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> <!-- End of row -->
                     </div>
                 </div>
             </div>
+
 
             <!-- Right Side - Telemetry and Map -->
             <div class="col-lg-4">
@@ -213,8 +229,11 @@
 
                 <!-- Map Display -->
                 <div class="card bg-dark border-secondary">
-                    <div class="card-header border-secondary">
-                        <i class="fas fa-map-marked-alt me-2"></i>Location Map
+                    <div class="card-header border-secondary d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-map-marked-alt me-2"></i>Location Map</span>
+                        <button id="startTrackingBtn" class="btn btn-sm btn-outline-warning">
+                            <i class="fas fa-location-arrow me-1"></i>Start Tracking
+                        </button>
                     </div>
                     <div class="card-body p-0">
                         <div id="map" style="height: 300px;"></div>
@@ -230,4 +249,5 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
